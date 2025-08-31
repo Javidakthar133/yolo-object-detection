@@ -1,0 +1,21 @@
+
+
+### 📄 Sample Outputs
+
+#### `data/outputs/sample_detections.json`
+```json
+{
+  "image": "sample.jpg",
+  "detections": [
+    {
+      "class": "person",
+      "confidence": 0.91,
+      "bbox": [100, 150, 350, 600]
+    },
+    {
+      "class": "cat",
+      "confidence": 0.78,
+      "bbox": [420, 300, 600, 500]
+    }
+  ]
+}
