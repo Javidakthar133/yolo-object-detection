@@ -1,0 +1,62 @@
+##References
+
+YOLOv5 GitHub
+
+PyTorch
+
+
+---
+
+### 📄 `IMPLEMENTATION_NOTES.md`
+```markdown
+# Implementation Notes
+
+This document describes the implementation details and design choices for the YOLOv5 object detection project.
+
+---
+
+## 1. Model
+- Base model: **YOLOv5s** (small version for faster inference).
+- Pre-trained on the COCO dataset.
+- Model weights stored in `/models`.
+
+---
+
+## 2. Detection Pipeline
+1. Load YOLOv5 model.
+2. Preprocess input (resize, normalize).
+3. Run inference on image/video frames.
+4. Post-process:
+   - Apply Non-Max Suppression (NMS).
+   - Filter by confidence threshold.
+5. Save:
+   - Annotated image with bounding boxes.
+   - Detection metadata as JSON.
+
+---
+
+## 3. Output Format
+
+### Annotated Image
+- File: `*_annotated.jpg`
+- Shows bounding boxes + labels + confidence scores.
+
+### Detection JSON
+- File: `*_detections.json`
+- Example:
+```json
+{
+  "image": "sample.jpg",
+  "detections": [
+    {
+      "class": "person",
+      "confidence": 0.87,
+      "bbox": [120, 200, 400, 600]
+    },
+    {
+      "class": "dog",
+      "confidence": 0.76,
+      "bbox": [500, 350, 700, 650]
+    }
+  ]
+}
